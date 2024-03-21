@@ -1,0 +1,3 @@
+com\tga\eventsource\KafkaConsumerConfig.class
+com\tga\eventsource\handler\EventHandler.class
+com\tga\eventsource\handler\EventListener.class

@@ -1,0 +1,15 @@
+com\tga\eventsource\aggregate\AggregateRepository.class
+com\tga\eventsource\util\EventUtil.class
+com\tga\eventsource\handler\AbstractEventHandler.class
+com\tga\eventsource\repo\AggregateSnapshotRepository.class
+com\tga\eventsource\model\EventStore.class
+com\tga\eventsource\model\AggregateSnapshot.class
+com\tga\eventsource\util\AggregateWithEvents.class
+com\tga\eventsource\repo\EventStoreRepository.class
+com\tga\eventsource\strategy\EventBasedSnapshotStrategy.class
+com\tga\eventsource\aggregate\AggregateRepositoryImpl.class
+com\tga\eventsource\strategy\SnapshotStrategy.class
+com\tga\eventsource\KafkaConsumerConfig.class
+com\tga\eventsource\util\Aggregates.class
+com\tga\eventsource\handler\AbstractCommandHandler.class
+com\tga\eventsource\util\EventPayload.class

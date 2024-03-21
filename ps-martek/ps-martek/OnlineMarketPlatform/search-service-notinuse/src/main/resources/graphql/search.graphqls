@@ -1,0 +1,88 @@
+
+
+type Query {
+    getCustomer(customerId: String):  ESCustomer
+    getOrder( customerId: String,  orderId: String) : Order
+    getOrderByCartId(  customerId: String,  cartId: String) : Order
+}
+
+scalar Date
+
+type ESCustomer {
+    id: String
+    contactDetails: String
+    name: String
+    email: String
+    addresses: [Address]
+    cardDetails: [CardDetails]
+    orders: [Order]
+
+}
+
+type Address {
+    line1: String
+    line2: String
+    city: String
+    pinCode: String
+    name: String
+    billingAddress: Boolean
+}
+
+type CardDetails {
+    cardNo: String
+    cardName: String
+}
+
+type Order {
+    id: String
+    customerId: String
+    cartId: String
+    items: [Item]
+    status: String
+    totalPrice: Float
+    addressId: String
+    comments: String
+    paymentDetail: Payment
+    shipmentDetail: Shipment
+}
+
+type Item {
+	product: Product
+	unit: Int
+	price: Float
+}
+
+type Product{
+
+    id: String
+    name: String
+    isPublished: Boolean
+    categoryId: String
+    categoryName: String
+    models: [Model]
+}
+
+type Model {
+    name: String
+    price: Float
+}
+
+type Payment {
+    id: String
+    totalAmount: Float
+    status: String
+    instructions: [Instruction]
+}
+
+type Instruction {
+    paymentTxnOrderId: String
+    txnRefId: String
+    date: String
+    status: String
+}
+
+type Shipment {
+    id: String
+    addressId: String
+    status: String
+}

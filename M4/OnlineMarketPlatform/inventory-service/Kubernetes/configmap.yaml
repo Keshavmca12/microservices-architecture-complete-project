@@ -1,0 +1,10 @@
+apiVersion: v1
+kind : ConfigMap
+metadata:
+  name: db-config
+data:
+  host: mysql
+  dbName: inventorydb
+  username: root
+  password: root
+  rootpassword: root

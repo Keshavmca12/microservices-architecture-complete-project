@@ -1,0 +1,4 @@
+com\tga\eventsource\command\Aggregate.class
+com\tga\eventsource\event\NoActionEvent.class
+com\tga\eventsource\command\Command.class
+com\tga\eventsource\event\Event.class

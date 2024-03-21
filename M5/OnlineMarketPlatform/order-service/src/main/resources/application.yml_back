@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: orderservice
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST}/${DB_NAME}?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  kafka:
+      bootstrap-servers: ${KAFKA-CONFIG_BOOTSTRAP-SERVERS}
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      database-platform: org.hibernate.dialect.MySQLDialect
+      open-in-view: false
+      generate-ddl: false
+      properties:
+        hibernate.format_sql: false
+springdoc :
+  swagger-ui:
+    path: /swagger-ui-order.html
+    api-docs:
+     path: /order-openapi
+    disable-swagger-default-url: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#  flyway:
+#    enabled: true
+#    group: true
+#    sql-migration-prefix: V
+#    sql-migration-separator: __
+#    sql-migration-suffixes: .sql
+#    schemas: order
+#    locations: classpath:db/script

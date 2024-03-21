@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "poskube.fullname" . }}-test-connection"
+  labels:
+    {{- include "poskube.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "poskube.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never

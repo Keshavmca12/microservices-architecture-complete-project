@@ -1,0 +1,22 @@
+create database shippingdb;
+use shippingdb;
+
+CREATE TABLE `shipment` (
+  `shipment_id` binary(16) PRIMARY KEY NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `shipment_date` datetime DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `user_id` binary(16) DEFAULT NULL);
+
+CREATE TABLE `shipment_address` (
+  `id` binary(16) PRIMARY KEY NOT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `full_address` varchar(255) DEFAULT NULL,
+  `postal_code` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `shipment_id` binary(16) UNIQUE NOT NULL);
+
+ALTER TABLE shipment_address
+  ADD CONSTRAINT fk_shipment FOREIGN KEY (shipment_id) REFERENCES shipment (shipment_id);

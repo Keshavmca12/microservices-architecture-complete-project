@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="shopping.cart.aggregator" />
+        <module name="marktek-iam" />
+        <module name="customer-service" />
+        <module name="event-handler" />
+        <module name="product-service" />
+        <module name="shopping.cart.cmd" />
+        <module name="search-models" />
+        <module name="event-source-mongoDb" />
+        <module name="search" />
+        <module name="payment-service" />
+        <module name="inventory-service" />
+        <module name="shopping.cart.query" />
+        <module name="order-service" />
+        <module name="domain-events" />
+        <module name="common-events" />
+        <module name="shipping-service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="common-events" options="-parameters" />
+      <module name="customer-service" options="-parameters" />
+      <module name="domain-events" options="-parameters" />
+      <module name="event-handler" options="-parameters" />
+      <module name="event-source-mongoDb" options="-parameters" />
+      <module name="inventory-service" options="-parameters" />
+      <module name="marktek-iam" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="payment-service" options="-parameters" />
+      <module name="product-service" options="-parameters" />
+      <module name="search" options="-parameters" />
+      <module name="search-models" options="-parameters" />
+      <module name="shipping-service" options="-parameters" />
+      <module name="shopping.cart.aggregator" options="-parameters" />
+      <module name="shopping.cart.cmd" options="-parameters" />
+      <module name="shopping.cart.query" options="-parameters" />
+    </option>
+  </component>
+</project>

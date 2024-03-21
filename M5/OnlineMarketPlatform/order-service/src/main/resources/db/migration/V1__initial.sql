@@ -1,0 +1,43 @@
+--create database orderdb;
+--use orderdb;
+--CREATE TABLE `orders` (
+--  `order_id` varchar(36) NOT NULL PRIMARY KEY,
+--  `created_at` datetime DEFAULT NULL,
+--  `updated_at` datetime DEFAULT NULL,
+--  `order_date` datetime DEFAULT NULL,
+--  `order_status` varchar(20) DEFAULT NULL,
+--  `user_id` varchar(36) DEFAULT NULL);
+--
+--CREATE TABLE `order_items` (
+--  `item_id` varchar(36) NOT NULL PRIMARY KEY,
+--  `price` decimal(38,2) DEFAULT NULL,
+--  `product_id` varchar(36) DEFAULT NULL,
+--  `product_name` varchar(255) DEFAULT NULL,
+--  `unit` int DEFAULT NULL,
+--  `price` decimal(38,2) DEFAULT NULL,
+--  `order_id` varchar(36) DEFAULT NULL);
+--
+--CREATE TABLE `order_address` (
+--  `id` varchar(36) NOT NULL  PRIMARY KEY,
+--  `created_at` datetime DEFAULT NULL,
+--  `updated_at` datetime DEFAULT NULL,
+--  `city` varchar(255) DEFAULT NULL,
+--  `country` varchar(255) DEFAULT NULL,
+--  `full_address` varchar(255) DEFAULT NULL,
+--  `postal_code` varchar(10) DEFAULT NULL,
+--  `state` varchar(20) DEFAULT NULL,
+--  `order_id` varchar(36) UNIQUE NOT NULL);
+--
+----CREATE TABLE `payment_details` (
+----  `id` binary(16) PRIMARY KEY NOT NULL,
+----  `account_no` varchar(255) DEFAULT NULL,
+----  `payment_mode` varchar(255) DEFAULT NULL,
+----  `order_id` binary(16) UNIQUE NOT NULL);
+--
+--ALTER TABLE order_address
+--  ADD CONSTRAINT fk_order_address FOREIGN KEY (order_id) REFERENCES orders (order_id);
+--
+--
+--ALTER TABLE order_items
+--  ADD CONSTRAINT fk_orderitem FOREIGN KEY (order_id) REFERENCES orders (order_id);
+--

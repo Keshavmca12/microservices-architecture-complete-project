@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:  
+  name: order-service-config
+  labels: 
+    {{- include "order-service.labels" . | nindent 4 }}
+data:
+  NEO4J_SERVICE: "neo4j.database"
+  KAFKA_SERVICE: "broker.broker"
+  SEARCH_SERVICE_HOST: "search-service.default"
+  SEARCH_SERVICE_PORT: "80"
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: order-service-secret
+  labels:
+    {{- include "order-service.labels" . | nindent 4 }}
+stringData:
+  NEO4J_USER: "neo4j"
+  NEO4J_PASSWORD: "neo"

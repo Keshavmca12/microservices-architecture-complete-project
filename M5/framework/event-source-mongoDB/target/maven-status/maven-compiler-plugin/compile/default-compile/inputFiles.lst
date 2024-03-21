@@ -1,0 +1,14 @@
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\repo\AggregateSnapshotRepository.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\aggregate\AggregateRepositoryImpl.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\KafkaConsumerConfig.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\util\EventUtil.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\aggregate\AggregateRepository.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\model\AggregateSnapshot.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\util\Aggregates.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\model\EventStore.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\strategy\EventBasedSnapshotStrategy.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\handler\AbstractCommandHandler.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\util\AggregateWithEvents.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\handler\AbstractEventHandler.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\repo\EventStoreRepository.java
+C:\Users\keskumar2\Documents\mine\TGA\assignment\ps-martek-idea\framework\event-source-mongoDB\src\main\java\com\tga\eventsource\strategy\SnapshotStrategy.java

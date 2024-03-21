@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:  
+  name: search-service-config
+  labels: 
+    {{- include "search-service.labels" . | nindent 4 }}
+data:
+  KAFKA_SERVICE: "broker.broker"
+  ES_SERVICE_PORT: "9200"
+  ES_SERVICE_HOST: "elasticsearch-master.elastic"
+  
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: search-service-secret
+  labels:
+    {{- include "search-service.labels" . | nindent 4 }}
+stringData:
+  ES_USER_NAME: "elastic"
+  ES_PASSWORD: "changeme"

@@ -1,0 +1,106 @@
+image:
+  registry: docker.io
+  repository: bitnami/mariadb
+  tag: 10.11.4-debian-11-r46
+  pullPolicy: IfNotPresent
+
+architecture: standalone
+
+auth:
+  rootPassword: password
+  database: marktek
+  username: iamuser
+  password: iampassword
+
+initdbScripts:
+  customers.sql: |
+    CREATE TABLE IF NOT EXISTS customers (
+      id bigint(20) NOT NULL PRIMARY KEY,
+      perm_address varchar(255),
+      age int(11),
+      email varchar(255),
+      fname varchar(255),
+      lname varchar(255),
+      mobile_number varchar(255),
+      password varchar(255)
+    );
+    INSERT INTO customers (id, perm_address, age, email, fname, lname, mobile_number, password) VALUES 
+    (101, 'value1', 34, 'prashantjain25@gmail.com', 'Prashant', 'Jain', '9876543210', '$2a$12$YBB9wJhxWvHaI2qNL/cd6.L.iI.WASlGes7G7M3h/iohJpsTjR6jO');
+
+primary:
+  configuration: |
+    [mysqld]
+    skip-name-resolve
+    explicit_defaults_for_timestamp
+    basedir=/opt/bitnami/mariadb
+    datadir=/bitnami/mariadb/data
+    port=3306
+    socket=/opt/bitnami/mariadb/tmp/mysql.sock
+    max_allowed_packet=16M
+    bind-address=*
+    pid-file=/opt/bitnami/mariadb/tmp/mysqld.pid
+    log-error=/opt/bitnami/mariadb/logs/mysqld.log
+    character-set-server=UTF8
+    collation-server=utf8_general_ci
+    slow_query_log=0
+    long_query_time=10.0
+
+    [client]
+    port=3306
+    socket=/opt/bitnami/mariadb/tmp/mysql.sock
+    default-character-set=UTF8
+    plugin_dir=/opt/bitnami/mariadb/plugin
+    [manager]
+    port=3306
+    socket=/opt/bitnami/mariadb/tmp/mysql.sock
+    pid-file=/opt/bitnami/mariadb/tmp/mysqld.pid
+  containerSecurityContext:
+    enabled: true
+    runAsUser: 1001
+    runAsNonRoot: true
+    privileged: false
+    allowPrivilegeEscalation: false
+      
+  startupProbe:
+    enabled: false
+    initialDelaySeconds: 360
+    periodSeconds: 15
+    timeoutSeconds: 5
+    failureThreshold: 10
+    successThreshold: 1
+  livenessProbe:
+    enabled: false
+    initialDelaySeconds: 360
+    periodSeconds: 10
+    timeoutSeconds: 1
+    failureThreshold: 3
+    successThreshold: 1
+  readinessProbe:
+    enabled: false
+    initialDelaySeconds: 360
+    periodSeconds: 10
+    timeoutSeconds: 1
+    failureThreshold: 3
+    successThreshold: 1
+
+  persistence:
+    enabled: true
+    size: "8Gi"
+
+volumePermissions:
+  enabled: true
+  image:
+    registry: docker.io
+    repository: bitnami/os-shell
+    tag: 11-debian-11-r16
+    digest: ""
+    pullPolicy: IfNotPresent
+metrics:
+  enabled: false
+  image:
+    registry: docker.io
+    repository: bitnami/mysqld-exporter
+    tag: 0.15.0-debian-11-r0
+    digest: ""
+    pullPolicy: IfNotPresent
+        

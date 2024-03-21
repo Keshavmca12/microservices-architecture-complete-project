@@ -1,0 +1,49 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
+    nginx.ingress.kubernetes.io/allowed-methods: "GET,POST"
+    ingress.kubernetes.io/rewrite-target: /$4
+spec:
+  rules:
+
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /hello
+            backend:
+              service:
+                name: inventoryservicelb
+                port:
+                  number: 8080
+          - pathType: Prefix
+            path: /order
+            backend:
+              service:
+                name: inventoryservicelb
+                port:
+                  number: 8080
+          - pathType: Prefix
+            path: /api/inventory
+            backend:
+              service:
+                name: inventoryservicelb
+                port:
+                  number: 8080
+          - pathType: Prefix
+            path: /publish
+            backend:
+              service:
+                name: inventoryservicelb
+                port:
+                  number: 8080
+          - pathType: Prefix
+            path: /restore
+            backend:
+              service:
+                name: inventoryservicelb
+                port:
+                  number: 8080

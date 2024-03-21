@@ -1,0 +1,15 @@
+com\tga\search\data\es\customer\PaymentStatusEnum.class
+com\tga\search\data\es\product\Category.class
+com\tga\search\data\es\product\Model.class
+com\tga\search\data\es\customer\OrderStatusEnum.class
+com\tga\search\data\es\customer\Payment.class
+com\tga\search\data\es\customer\Instruction.class
+com\tga\search\data\es\customer\Order.class
+com\tga\search\data\es\customer\Customer.class
+com\tga\search\data\es\customer\Item.class
+com\tga\search\data\es\customer\Address.class
+com\tga\search\data\es\customer\ShipmentStatus.class
+com\tga\search\data\es\product\Product.class
+com\tga\search\data\es\customer\CardDetails.class
+com\tga\search\data\es\customer\PaymentTxnStatus.class
+com\tga\search\data\es\customer\Shipment.class

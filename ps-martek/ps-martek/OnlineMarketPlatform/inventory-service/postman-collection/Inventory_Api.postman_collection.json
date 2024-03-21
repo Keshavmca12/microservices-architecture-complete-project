@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "0efb4149-0036-4d1f-af8e-c241afaec767",
+		"name": "Inventory_Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27481819"
+	},
+	"item": [
+		{
+			"name": "Save Inventories",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"inventoryList\": [\r\n        {\r\n              \"inventoryName\": \"Inventory 3\",\r\n            \"productId\": \"4f066114-15bd-4059-af98-f00bee6a8223\",\r\n            \"skuId\": \"2f066114-15bd-2059-af98-f00bee6a2411\",\r\n            \"priceUnit\": 100.50,\r\n            \"quantity\": \"100\"\r\n        },\r\n        {\r\n        \"inventoryName\": \"Inventory 4\",\r\n        \"productId\": \"4f065114-15bd-5059-af98-f00bee6a8153\",\r\n        \"skuId\": \"2f066114-15bd-1059-af98-f00bee6a1631\",\r\n        \"priceUnit\": 100.50,\r\n        \"quantity\": \"100\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/inventory/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"inventory",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Inventories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/inventory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isInStock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"skuCodes\": [\r\n        \"2f066114-15bd-2059-af98-f00bee6a2411\",\r\n        \"2f066114-15bd-1059-af98-f00bee6a1631\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/inventory/isInStock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"inventory",
+						"isInStock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publish",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"inventoryList\": [\r\n        {\r\n            \"inventoryId\": \"9408abea-9b24-4787-8a88-42eee57c0781\",\r\n            \"skuId\": \"1f066114-15bd-1059-af98-f00bee6a1651\",\r\n            \"supplierId\": null,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/publish",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"publish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "restore",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"inventoryList\": [\r\n        {\r\n            \"inventoryId\": \"9408abea-9b24-4787-8a88-42eee57c0781\",\r\n            \"skuId\": \"1f066114-15bd-1059-af98-f00bee6a1651\",\r\n            \"supplierId\": null,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/publish",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"publish"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

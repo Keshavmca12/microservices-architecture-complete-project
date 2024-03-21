@@ -1,0 +1,10 @@
+apiVersion: v1
+kind : ConfigMap
+metadata:
+  name: inventory-db-config
+data:
+  host: mysql-inventory
+  dbName: inventorydb
+  username: bijaya
+  password: bijaya
+  rootpassword: root

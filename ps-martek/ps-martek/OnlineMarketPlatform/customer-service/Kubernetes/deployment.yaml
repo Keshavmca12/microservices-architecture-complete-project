@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: customer-service
+  template:
+    metadata:
+      labels:
+        app: customer-service
+    spec:
+      containers:
+        - name: customer-service
+          image: sauravdas90/customer-service
+          ports:
+            - containerPort: 6061
+          #      imagePullSecrets:
+          #        - name: psdocsecrert
+          #          env:
+          #            - name: TITLE
+          #              value: "AKS Ingress Demo for Order service"
+          env: # Setting Enviornmental Variables
+            - name: DB_HOST   # Setting Database host address from configMap
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config
+                  key: host
+            - name: DB_NAME  # Setting Database name from configMap
+              valueFrom:
+                configMapKeyRef:
+                  name: db-config
+                  key: dbName
+            - name: DB_USERNAME  # Setting Database username from Secret
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: username
+            - name: DB_PASSWORD # Setting Database password from Secret
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: password
+
+---
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: customer-servicelb
+spec:
+  selector:
+    app: customer-service
+  ports:
+    - protocol: "TCP"
+      port: 80 # The port that the service is running on in the cluster
+      targetPort: 6061 # The port exposed by the service
+status:
+  loadBalancer: { }
+#  type: NodePort # type of the service.

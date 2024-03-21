@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "search-service.fullname" . }}
+  labels:
+    {{- include "search-service.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "search-service.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "search-service.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: ES_USER_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: search-service-secret
+                  key: ES_USER_NAME
+            - name: ES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: search-service-secret
+                  key: ES_PASSWORD
+          ports:
+            - name: http
+              containerPort: 8060
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: search-service-config
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+
+         
