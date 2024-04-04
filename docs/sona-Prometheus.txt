@@ -1,0 +1,24 @@
+sonar :
+
+username : admin
+password: root
+
+toekn : 72bdaac89062d12cac2521d19ec2c0e1684ac1db
+
+72bdaac89062d12cac2521d19ec2c0e1684ac1db
+
+
+mvn sonar:sonar \ -Dsonar.projectKey=product-service \ -Dsonar.host.url=http://localhost:9000 \ -Dsonar.login=72bdaac89062d12cac2521d19ec2c0e1684ac1db
+
+
+
+C:\Users\keskumar2\Documents\mine\TGA\assignment-latest\keshav-kumar\M5\OnlineMarketPlatform\product-service>mvn sonar:sonar -Dsonar.projectKey=product-service -Dsonar.host.url=http://localhost:9000  -Dsonar.login=72bdaac89062d12cac2521d19ec2c0e1684ac1db
+
+
+Prometheus 
+
+C:\Users\keskumar2\Documents\mine\TGA\prometheus\prometheus-2.47.0.windows-amd64>prometheus.exe --config.file=./prometheus-new.yaml
+
+
+Grafana - password  - 8010012415@Ga
+username : admin

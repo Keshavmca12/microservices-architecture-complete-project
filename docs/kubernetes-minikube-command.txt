@@ -1,0 +1,51 @@
+Kubernetes command : 
+
+docker: Suggestion: Add your user to the 'docker' group:
+
+sudo usermod -aG docker $USER && newgrp docker
+
+
+minikube start
+
+minikube status 
+
+minikube delete
+
+  Updating the running docker "minikube" container ...  -- stuck on this minikube delete
+
+
+
+-- navigate to project 
+
+ cd /mnt/c/
+ 
+  minikube kubectl -- get pods
+ 
+ 
+ 
+ Run inventory service 
+ 
+  minikube kubectl -- apply -f ./configmap.yaml
+  
+  minikube kubectl -- apply -f ./secrets.yaml
+  
+  db ---------------
+  
+  minikube kubectl -- apply -f ./mysql_db-deployment.yaml
+  
+  minikube kubectl -- exec -it mysql-9855fc64-px9wh /bin/bash
+  
+  
+  -- kafka ---
+  
+  -- mongodb ----
+  
+  -----deployemnt 
+  
+  minikube kubectl -- apply -f ./deployment.yaml
+  
+  
+  
+   minikube kubectl -- logs inventoryservice-6c8f99c56-6fhdx
+  
+  keskumar2@WKWIN4339248:/mnt/c/Users/keskumar2/Documents/mine/TGA/assignment/ps-martek-idea/OnlineMarketPlatform/inventory-service$ docker tag inventory-service:2.0 keshavsignin/tagname

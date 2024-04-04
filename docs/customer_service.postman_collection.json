@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "058b0620-300f-4801-bca5-c2b696880503",
+		"name": "customer_service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5858623",
+		"_collection_link": "https://martian-station-84888.postman.co/workspace/cart-service-~68aea3ec-5e2e-48f7-ba53-bd15b20dc497/collection/5858623-058b0620-300f-4801-bca5-c2b696880503?action=share&creator=5858623&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Fetch Custiomer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:6061/customer/customer-service/api/v1/2512336",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6061",
+					"path": [
+						"customer",
+						"customer-service",
+						"api",
+						"v1",
+						"2512336"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"2512336\",\r\n  \"name\": \"Saurav\",\r\n  \"email\": \"saurav.das@dstorm.com\",\r\n  \"phone\": \"898134416\",\r\n  \"address\": {\r\n    \"id\": \"string\",\r\n    \"line1\": \"Kolkata\",\r\n    \"line2\": \"string\",\r\n    \"city\": \"Kolkata\",\r\n    \"pinCode\": \"700001\",\r\n    \"name\": \"string\",\r\n    \"billingAddress\": true\r\n  },\r\n  \"cardDetails\": {\r\n    \"id\": 0,\r\n    \"cardNo\": \"432525245\",\r\n    \"cardName\": \"Amex\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6061/customer/customer-service/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6061",
+					"path": [
+						"customer",
+						"customer-service",
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Customers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:6061/customer/customer-service/api/v1/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6061",
+					"path": [
+						"customer",
+						"customer-service",
+						"api",
+						"v1",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Address By Customer ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6061//customeraddress/api/v1/2512336",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6061",
+					"path": [
+						"",
+						"customeraddress",
+						"api",
+						"v1",
+						"2512336"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Payment info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6061/customerpay/api/v1/2512336",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6061",
+					"path": [
+						"customerpay",
+						"api",
+						"v1",
+						"2512336"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

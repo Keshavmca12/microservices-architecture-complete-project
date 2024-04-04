@@ -1,0 +1,9 @@
+java -jar jenkins.war
+
+
+C:\Users\keskumar2\.jenkins\secrets\initialAdminPassword
+
+
+
+
+C:\Users\keskumar2\Documents\mine\TGA\jenkins>java -jar jenkins.war

@@ -1,0 +1,70 @@
+pipeline {
+
+    environment {
+        registryCredential = 'dockerhub_id'
+        dockerImage = ''
+}
+
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+               checkout poll: false, scm: scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'bitbuckedcredid', url: 'https://tools.publicis.sapient.com/bitbucket/scm/tgapi/customer-service.git']])
+            }
+        }
+
+        stage ("build Jar") {
+            steps {
+                sh "mvn clean package -DskipTests=true"
+            }
+        }
+
+        stage('Test Maven - JUnit') {
+            steps {
+              sh "mvn test"
+            }
+            post{
+              always{
+                junit 'target/surefire-reports/*.xml'
+              }
+            }
+        }
+
+
+      stage('Sonarqube Analysis - SAST') {
+    	environment {
+        	scannerHome = tool 'SonarQubeScanner'
+    	}
+    	steps {
+        	withSonarQubeEnv('sonarqube') {
+            		sh "${scannerHome}/bin/sonar-scanner"
+        		}
+        	timeout(time: 10, unit: 'MINUTES') {
+            		waitForQualityGate abortPipeline: true
+        		}
+    		}
+	}
+
+
+        stage ("Build image") {
+            steps {
+                script{
+                    dockerImage = docker.build("keshavsignin/customer-service:1.0.1")
+                }
+            }
+        }
+
+        stage ("Push to Docker Hub") {
+            steps {
+                script{
+             // This step should not normally be used in your script. Consult the inline help for details.
+                withDockerRegistry(credentialsId: 'dockerhub_id', url: '') {
+                dockerImage.push()
+                }
+            }
+        }
+    }
+
+
+    }
+}

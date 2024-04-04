@@ -1,0 +1,38 @@
+Docker commands :
+
+sudo service docker status - 
+
+sudo service docker start 
+
+
+https://stackoverflow.com/questions/39617387/docker-daemon-cant-initialize-network-controller
+
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+
+sudo dockerd &
+
+
+From in 28 minutes : 
+
+docker run -p 9411:9411 openzipkin/zipkin:2.23
+
+http://localhost:9411/zipkin/?lookback=15m&endTs=1692722008066&limit=10
+
+
+For prometheus : https://medium.com/javarevisited/springboot-app-monitoring-with-grafana-prometheus-7c723f0dec15
+
+
+docker run -d --name=prometheus -p 9090:9090 -v /mnt/c/Users/keskumar2/Documents/mine/TGA/assignment-latest/keshav-kumar/M5/OnlineMarketPlatform/product-service/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+
+
+
+------------------------
+
+https://stackoverflow.com/questions/43858398/docker-push-error-denied-requested-access-to-the-resource-is-denied
+
+You need to create a repository, below is the command to create a repository -
+
+docker tag local-image:tagname YOUR-ACCOUNT-NAME/tagname
+
+docker push YOUR-ACCOUNT-NAME/tagname enter image description here
